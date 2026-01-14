@@ -17,5 +17,5 @@ fn practice() {
     println!("Hello my full name is, {name} {}!", last.to_lowercase());
 
     let data = [1,2,3,4,5];
-    println!("{data:?}");
+    println!("{data:?} 67");
 }
