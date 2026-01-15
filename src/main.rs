@@ -8,7 +8,7 @@ fn main()
 }
 fn practice() {
     let name = "Tommy";
-    let last:&str = "MyLastName";
+    let last:&str = "MyLastNameski";
     //immutable = cannot change
     //default string I.E let mystring = mytext IS IMUTIBLE CANNOT CHANGE STATIC
     //to make dynamic let mystring = String::from("my text")
