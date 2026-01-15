@@ -1,10 +1,30 @@
+use std::cmp::Ordering;
 use std::io;
-fn main()
-{
+use rand::Rng;
+fn main() {
+    game();
+}
+fn game() {
+    let correct =rand::rng().random_range(1..101);
+    println!("The correct number is: {}", correct);
+loop {
     println!("Hey, guess a number:");
-    let mut guessed_number:String = String::new();
-    io::stdin().read_line(&mut guessed_number).expect("Failed to read line");
-    println!("You guessed: {}", guessed_number.trim());
+    let mut guessed_number= String::new();
+    io::stdin()
+        .read_line(&mut guessed_number)
+        .expect("Failed to read line");
+    let guessed_number:u32 = guessed_number.trim().parse().expect("Please type a number!");
+
+    match guessed_number.cmp(&correct)
+    {
+        Ordering::Greater=> println!("You guessed too high"),
+        Ordering::Less => println!("you guessed too low"),
+        Ordering::Equal =>  {
+           println!("you guessed correctly");
+            break;
+        }
+    };
+}
 }
 fn practice() {
     let name = "Tommy";
