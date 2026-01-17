@@ -18,10 +18,12 @@ fn chap_1() {
         correct.push(rand::rng().random_range(1..101));
     }
     println!("{correct:?}");
-/*
-    //println!("The correct number is: {}", correct);
-loop {
+    let mut guesses_made = 0;
+    println!("The correct number is: {:?}", correct);
     println!("Hey, guess a number:");
+
+while guesses_made < how_many {
+
     let mut guessed_number= String::new();
     io::stdin()
         .read_line(&mut guessed_number)
@@ -35,16 +37,23 @@ loop {
         }
     };
 
-    match guessed_number.cmp(&correct)
+    match guessed_number.cmp(&correct[guesses_made as usize])
     {
         Ordering::Greater=> println!("You guessed too high"),
         Ordering::Less => println!("you guessed too low"),
         Ordering::Equal =>  {
            println!("you guessed correctly");
-            break;
+            guesses_made += 1;
+            if guesses_made < how_many {
+                println!("Now try the Next number!");
+            }
         }
     };
 }
+    println!("game over");
+    for item in correct {
+        println!("The correct numbers were {}", item);
+    }
 }
 fn practice() {
     let name = "Tommy";
@@ -61,5 +70,5 @@ fn practice() {
 
 fn chap_2() {
     println!("Hello, world!");
-    */
+
 }
